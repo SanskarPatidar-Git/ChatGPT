@@ -1,0 +1,168 @@
+plugins {
+    id 'com.android.application'
+    id 'androidx.navigation.safeargs'
+    id 'com.google.dagger.hilt.android'
+}
+
+def propertiesFile = rootProject.file('local.properties')
+def properties = new Properties()
+properties.load(new FileInputStream(propertiesFile))
+
+def androidVersions = rootProject.ext.projectConfiguration
+
+android {
+    namespace androidVersions.applicationId
+    compileSdk androidVersions.compileSdk
+
+    defaultConfig {
+        applicationId androidVersions.applicationId
+        minSdk androidVersions.minSdk
+        targetSdk androidVersions.targetSdk
+        versionCode androidVersions.versionCode
+        versionName androidVersions.versionName
+
+        /*
+         * If your minSdkVersion is set to 21 or higher, multidex is enabled by default
+         * and you do not need the multidex support library.
+         */
+        multiDexEnabled true
+
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        /**
+         * User like this in manifest
+         *
+         * <meta-data
+         *      android:name="com.google.android.geo.API_KEY"
+         *      android:value="${GOOGLE_MAPS_API_KEY}" />
+         */
+        manifestPlaceholders = [GOOGLE_MAPS_API_KEY: "${properties.getProperty('GOOGLE_MAPS_API_KEY')}"]
+        /**
+         * User like this in manifest
+         *
+         * <meta-data
+         *      android:name="com.google.android.geo.API_KEY"
+         *      android:value="@string/google_maps_api_key" />
+         */
+        resValue "string", "google_maps_api_key", "${properties.getProperty('GOOGLE_MAPS_API_KEY')}"
+        /**
+         * User like this in java
+         *
+         * public static final String GOOGLE_MAP_API_KEY = BuildConfig.GOOGLE_MAP_API_KEY;
+         */
+        buildConfigField "String", "GOOGLE_MAPS_API_KEY", "\"${properties.getProperty('GOOGLE_MAPS_API_KEY')}\""
+
+        manifestPlaceholders = [FIREBASE_SERVER_KEY: "${properties.getProperty('FIREBASE_SERVER_KEY')}"]
+        resValue "string", "firebase_server_key", "${properties.getProperty('FIREBASE_SERVER_KEY')}"
+        buildConfigField "String", "FIREBASE_SERVER_KEY", "\"${properties.getProperty('FIREBASE_SERVER_KEY')}\""
+    }
+
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+        dataBinding = false
+    }
+
+    /**
+     * Enable code shrinking, obfuscation, and optimization for only release build types else it
+     * increases the build time and makes it difficult to debug.
+     */
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    ndkVersion '23.1.7779620'
+    externalNativeBuild {
+        ndkBuild {
+            path 'src/main/jni/Android.mk' //path of Android.mk file
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    /**
+     * However, if your minSdkVersion is set to 20 or lower,
+     * then you must use the multiDex support library
+     */
+    implementation "androidx.multidex:multidex:2.0.1"
+
+    /* Google Material Design Libraries */
+    implementation "com.google.android.material:material:1.8.0"
+
+    /* use this two library, ssp is for text size, and sdp is for margin, padding and layout size */
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
+    /********************************** JetPack Libraries Start ***********************************/
+    // Lifecycle only (without ViewModel or LiveData)
+    implementation "androidx.lifecycle:lifecycle-runtime:2.5.1"
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel:2.5.1"
+
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata:2.5.1"
+
+    // Dagger Hilt
+    implementation "com.google.dagger:hilt-android:2.44"
+    annotationProcessor "com.google.dagger:hilt-compiler:2.44"
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment:2.5.3"
+    implementation "androidx.navigation:navigation-ui:2.5.3"
+
+    // Room Database
+    implementation "androidx.room:room-runtime:2.5.0"
+    annotationProcessor "androidx.room:room-compiler:2.5.0"
+    /*********************************** JetPack Libraries End ************************************/
+    /* RxJava & RxAndroid */
+    implementation "io.reactivex.rxjava2:rxjava:2.2.19"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+
+    /* Retrofit & OkHttp Libraries */
+    implementation "com.squareup.okhttp3:okhttp:4.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.8.1" /* optional - RxJava support for Retrofit */
+
+    /* Glide Libraries */
+    implementation "com.github.bumptech.glide:glide:4.11.0"
+    annotationProcessor "com.github.bumptech.glide:compiler:4.11.0"
+
+    /* Picasso Libraries */
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    /* Other Libraries */
+    implementation "com.google.code.gson:gson:2.9.0"
+
+    /**
+     * Logging Interceptor
+     * link : https://github.com/ihsanbal/LoggingInterceptor
+     */
+    implementation('com.github.ihsanbal:LoggingInterceptor:3.1.0') {
+        exclude group: 'org.json', module: 'json'
+    }
+}
