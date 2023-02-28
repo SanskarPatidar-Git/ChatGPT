@@ -17,6 +17,8 @@ public class AppConstants {
     public static native String getProdBearerAuthenticationToken();
 
     public static final String BASE_URL ="http://gpt.crmcity.org/";
+    public static final int SENDER_TYPE=0;
+    public static final int RECEIVER_TYPE=1;
 
     public static final class AppConfig {
         public static final String APP_NAME     = "ChatGPT";

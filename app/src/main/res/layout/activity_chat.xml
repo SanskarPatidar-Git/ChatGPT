@@ -86,7 +86,7 @@
                     android:hint="Start a new chat"
                     android:imeOptions="actionSend"
                     android:inputType="text"
-                    android:id="@+id/message"
+                    android:id="@+id/chat_tv"
                     android:textSize="@dimen/_11sdp" />
                 <ImageButton
                     android:layout_width="0dp"
