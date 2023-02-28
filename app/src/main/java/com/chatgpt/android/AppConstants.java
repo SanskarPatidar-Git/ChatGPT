@@ -16,6 +16,8 @@ public class AppConstants {
     public static native String getProdApiKey();
     public static native String getProdBearerAuthenticationToken();
 
+    public static final String BASE_URL ="http://gpt.crmcity.org/";
+
     public static final class AppConfig {
         public static final String APP_NAME     = "ChatGPT";
         public static final String PACKAGE_NAME = BuildConfig.APPLICATION_ID;

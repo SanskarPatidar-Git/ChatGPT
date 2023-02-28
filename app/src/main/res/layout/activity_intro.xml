@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".activity.IntroActivity">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300sdp"
+        android:scaleType="fitXY"
+        android:src="@drawable/magier_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textWelcome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Welcome!"
+        android:textAlignment="center"
+        android:textAppearance="@style/BoldFont18"
+        app:layout_constraintBottom_toTopOf="@+id/textDesc"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalEndRoot"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalStartRoot"
+        app:layout_constraintTop_toBottomOf="@+id/image" />
+
+    <TextView
+        android:id="@+id/textDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Magier is a conversational AI here to help you get more stuff done! Come up with ideas for a song, create an outline for an essay, and so much more."
+        android:textAlignment="center"
+        android:textAppearance="@style/RegularFont12"
+        app:layout_constraintBottom_toTopOf="@+id/btnContinue"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalEndRoot"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalStartRoot" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnContinue"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_button_layout"
+        android:text="Continue"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/by_using_tv"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalEndRoot"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalStartRoot" />
+
+    <TextView
+        android:id="@+id/by_using_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="By using the app, you agree to our "
+        android:textAppearance="@style/RegularFont10"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalEndRoot"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalStartRoot"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalEndRoot"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalStartRoot"
+        app:layout_constraintBottom_toTopOf="@+id/we_are_enclosed">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="terms of services "
+            android:textAppearance="@style/RegularFont10"
+            android:textColor="@color/indigo_200" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="and "
+            android:textAppearance="@style/RegularFont10" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="privacy policy"
+            android:textAppearance="@style/RegularFont10"
+            android:textColor="@color/indigo_200" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/we_are_enclosed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="we are not endorsed or affilated with OpenAI"
+        android:textAppearance="@style/RegularFont10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalEndRoot"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVerticalStartRoot" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVerticalStartRoot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVerticalEndRoot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
