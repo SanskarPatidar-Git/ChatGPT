@@ -6,13 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <Toolbar
                 android:id="@+id/my_toolbar"
                 android:layout_width="match_parent"
@@ -34,19 +37,19 @@
                     android:id="@+id/toolbar_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_30sdp"
                     android:layout_marginLeft="@dimen/_16sdp"
                     android:text="Magier"
                     android:textAppearance="@style/BoldFont16"
-                    android:layout_marginStart="@dimen/_30sdp"
                     android:textColor="@android:color/black" />
 
                 <ImageView
-                    android:id="@+id/right_icon"
+                    android:id="@+id/settings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:padding="8dp"
                     android:layout_marginEnd="@dimen/_10sdp"
+                    android:padding="8dp"
                     android:src="@drawable/ic_settings" />
 
             </Toolbar>
@@ -55,47 +58,94 @@
                 android:id="@+id/chat_window"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_below="@id/my_toolbar"
                 android:layout_above="@+id/bottom_layout"
+                android:layout_below="@id/my_toolbar"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/chat_recycler_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                <ImageView
+                    android:id="@+id/imageMagier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_150sdp"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:src="@drawable/magier_image" />
+
+                <TextView
+                    android:id="@+id/tv_looks_nothing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:text="Looks like nothing's here."
+                    android:textAppearance="@style/BoldFont16" />
+
+                <TextView
+                    android:id="@+id/tv_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_26sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_26sdp"
+                    android:text="This is where all you chat history with magier will exist. Your chat history will be saved locally to your device to protect your privacy. "
+                    android:textAlignment="center"
+                    android:textAppearance="@style/RegularFont10" />
+
+                <ImageView
+                    android:id="@+id/image_get_started"
+                    android:layout_width="@dimen/_200sdp"
+                    android:layout_height="@dimen/_150sdp"
+                    android:layout_gravity="start"
+                    android:layout_margin="@dimen/_16sdp"
+                    android:src="@drawable/image_empty2" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/chat_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
             </LinearLayout>
-            <LinearLayout
+
+            <RelativeLayout
+                android:id="@+id/bottom_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
                 android:layout_alignParentBottom="true"
+                android:layout_margin="@dimen/_10sdp"
                 android:background="@drawable/border_grey_chat"
-                android:padding="@dimen/_3sdp"
-                android:gravity="center"
-                android:id="@+id/bottom_layout"
-                android:weightSum="5">
+                android:padding="@dimen/_3sdp">
 
                 <EditText
-                    android:layout_width="0dp"
+                    android:id="@+id/chat_tv"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="4.2"
                     android:backgroundTint="@android:color/transparent"
-                    android:fontFamily="@font/regular"
                     android:hint="Start a new chat"
+                    android:layout_marginRight="@dimen/_32sdp"
                     android:imeOptions="actionSend"
                     android:inputType="text"
-                    android:id="@+id/chat_tv"
-                    android:textSize="@dimen/_11sdp" />
+                    android:textAppearance="@style/RegularFont11"/>
+
                 <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_send_message"
-                    android:layout_weight="0.8"
                     android:id="@+id/send_message_btn"
-                    android:background="@android:color/transparent"/>
-            </LinearLayout>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/_4sdp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_send_message" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:visibility="gone"
+                    android:layout_marginRight="@dimen/_4sdp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"/>
+            </RelativeLayout>
 
 
         </RelativeLayout>

@@ -50,7 +50,7 @@ public class GetStartedActivity extends AppCompatActivity {
                                 Log.d("answer",answer);
                                 //todo
 
-                                SharedPref.setDataForRequestedOneTime(GetStartedActivity.this);
+                               // SharedPref.setDataForRequestedOneTime(GetStartedActivity.this);
                             }
                         }
 

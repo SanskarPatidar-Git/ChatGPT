@@ -25,25 +25,26 @@ public class PaymentActivity extends AppCompatActivity {
         binding.radioLayout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.radioLayout1.setBackgroundResource(R.drawable.edit_text_border_blue);
-                binding.radioLayout2.setBackgroundResource(R.drawable.edit_text_border_grey);
-
-                binding.radiobutton1.setChecked(true);
-                binding.radiobutton2.setChecked(false);
-
-                paymentValue = 12.99f;
+             setLayout1();
             }
         });
         binding.radioLayout2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                binding.radioLayout2.setBackgroundResource(R.drawable.edit_text_border_blue);
-                binding.radioLayout1.setBackgroundResource(R.drawable.edit_text_border_grey);
+               setLayout2();
+            }
+        });
 
-                binding.radiobutton1.setChecked(false);
-                binding.radiobutton2.setChecked(true);
-
-                paymentValue = 4.99f;
+        binding.radiobutton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               setLayout1();
+            }
+        });
+        binding.radiobutton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               setLayout2();
             }
         });
 
@@ -56,11 +57,30 @@ public class PaymentActivity extends AppCompatActivity {
 
                     SharedPref.setAppIsOpened(PaymentActivity.this);
 
-                    Intent intent =new Intent(PaymentActivity.this,GetStartedActivity.class);
+                    Intent intent =new Intent(PaymentActivity.this,ChatActivity.class);
                     startActivity(intent);
                     finish();
                 }
             }
         });
+    }
+
+    private void setLayout1(){
+        binding.radioLayout1.setBackgroundResource(R.drawable.edit_text_border_blue);
+        binding.radioLayout2.setBackgroundResource(R.drawable.edit_text_border_grey);
+
+        binding.radiobutton1.setChecked(true);
+        binding.radiobutton2.setChecked(false);
+
+        paymentValue = 12.99f;
+    }
+    private void setLayout2(){
+        binding.radioLayout2.setBackgroundResource(R.drawable.edit_text_border_blue);
+        binding.radioLayout1.setBackgroundResource(R.drawable.edit_text_border_grey);
+
+        binding.radiobutton1.setChecked(false);
+        binding.radiobutton2.setChecked(true);
+
+        paymentValue = 4.99f;
     }
 }

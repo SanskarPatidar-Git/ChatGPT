@@ -25,12 +25,8 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(SharedPref.checkDataForRequestedOneTime(SplashActivity.this)){
-                    Intent intent = new Intent(SplashActivity.this, ChatActivity.class);
-                    startActivity(intent);
-                    finish();
-                }else if(SharedPref.isAppOpened(SplashActivity.this)){
-                    Intent intent = new Intent(SplashActivity.this,GetStartedActivity.class);
+                if(SharedPref.isAppOpened(SplashActivity.this)){
+                    Intent intent = new Intent(SplashActivity.this,ChatActivity.class);
                     startActivity(intent);
                     finish();
                 }else{
