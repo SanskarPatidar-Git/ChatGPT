@@ -8,9 +8,11 @@
         android:allowBackup="false"
         android:dataExtractionRules="@xml/backup_rules_android_12_and_above"
         android:fullBackupContent="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/magier_image"
+        android:roundIcon="@drawable/magier_image"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme"
         tools:targetApi="31" >
         <activity

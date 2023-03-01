@@ -35,32 +35,32 @@ public class GetStartedActivity extends AppCompatActivity {
             }
         });
 
-        binding.sendMessageBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(binding.chatTv.getText().toString()!=null){
-                    String question = binding.chatTv.getText().toString();
-                    Call<String> call = ApiController.getInstance().getApiSets().getDataFromApi(question);
-
-                    call.enqueue(new Callback<String>() {
-                        @Override
-                        public void onResponse(Call<String> call, Response<String> response) {
-                            String answer = response.body();
-                            if(response.isSuccessful()){
-                                Log.d("answer",answer);
-                                //todo
-
-                               // SharedPref.setDataForRequestedOneTime(GetStartedActivity.this);
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<String> call, Throwable t) {
-                            Log.d("failure_api",t.getMessage());
-                        }
-                    });
-                }
-            }
-        });
+//        binding.sendMessageBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(binding.chatTv.getText().toString()!=null){
+//                    String question = binding.chatTv.getText().toString();
+//                    Call<String> call = ApiController.getInstance().getApiSets().getDataFromApi(question);
+//
+//                    call.enqueue(new Callback<String>() {
+//                        @Override
+//                        public void onResponse(Call<String> call, Response<String> response) {
+//                            String answer = response.body();
+//                            if(response.isSuccessful()){
+//                                Log.d("answer",answer);
+//                                //todo
+//
+//                               // SharedPref.setDataForRequestedOneTime(GetStartedActivity.this);
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onFailure(Call<String> call, Throwable t) {
+//                            Log.d("failure_api",t.getMessage());
+//                        }
+//                    });
+//                }
+//            }
+//        });
     }
 }

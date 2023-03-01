@@ -48,12 +48,13 @@
                 <ImageView
                     android:layout_width="@dimen/_32sdp"
                     android:layout_height="@dimen/_32sdp"
-                    android:src="@drawable/baseline_cloud_done_24" />
+                    android:padding="@dimen/_4sdp"
+                    android:src="@drawable/magier" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginLeft="@dimen/_6sdp"
                     android:layout_marginRight="@dimen/_8sdp"
                     android:text="Magier"
                     android:textAppearance="@style/BoldFont15" />
@@ -102,7 +103,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_8sdp"
                         android:layout_marginTop="@dimen/_8sdp"
-                        android:drawableLeft="@drawable/baseline_cloud_done_24"
+                        android:drawableLeft="@drawable/ic_check"
                         android:drawablePadding="@dimen/_8sdp"
                         android:padding="@dimen/_7sdp"
                         android:text="Enjoy unlimited usage and access"
@@ -112,7 +113,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_8sdp"
-                        android:drawableLeft="@drawable/baseline_cloud_done_24"
+                        android:drawableLeft="@drawable/ic_check"
                         android:drawablePadding="@dimen/_8sdp"
                         android:padding="@dimen/_7sdp"
                         android:text="Get higher word limits"
@@ -122,7 +123,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_8sdp"
-                        android:drawableLeft="@drawable/baseline_cloud_done_24"
+                        android:drawableLeft="@drawable/ic_check"
                         android:drawablePadding="@dimen/_8sdp"
                         android:padding="@dimen/_7sdp"
                         android:text="Use the most advanced GPT model"
@@ -152,11 +153,22 @@
                     android:background="@drawable/edit_text_border_grey">
 
                     <TextView
+                        android:id="@+id/tv1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/_8sdp"
-                        android:text="$12.99/Month (Save 35%)"
+                        android:text="$12.99/Month"
+                        android:textAppearance="@style/BoldFont11" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/_4sdp"
+                        android:text="(Save 35%)"
+                        android:textColor="@color/indigo_A200"
+                        android:layout_toRightOf="@+id/tv1"
                         android:textAppearance="@style/BoldFont11" />
 
                     <RadioButton

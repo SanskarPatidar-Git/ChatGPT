@@ -31,14 +31,13 @@
                     android:layout_gravity="start"
                     android:padding="3dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/magier_image" />
+                    android:src="@drawable/magier" />
 
                 <TextView
                     android:id="@+id/toolbar_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_30sdp"
-                    android:layout_marginLeft="@dimen/_16sdp"
+                    android:layout_marginStart="@dimen/_16sdp"
                     android:text="Magier"
                     android:textAppearance="@style/BoldFont16"
                     android:textColor="@android:color/black" />
