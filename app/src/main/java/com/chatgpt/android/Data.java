@@ -1,6 +1,9 @@
 package com.chatgpt.android;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Data {
+    @SerializedName("text")
     private String data;
 
     public Data(String data) {

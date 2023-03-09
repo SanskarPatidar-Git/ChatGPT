@@ -8,9 +8,11 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiSets {
 
     @POST("abc")
-    Call<ResponseBody> getDataFromApi(@Body Data question);
+    Call<String> getDataFromApi(@Body Data text);
 }

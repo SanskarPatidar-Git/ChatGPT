@@ -30,9 +30,6 @@
             android:name=".activity.PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.GetStartedActivity"
-            android:exported="false" />
-        <activity
             android:name=".activity.SplashActivity"
             android:exported="true" >
             <intent-filter>

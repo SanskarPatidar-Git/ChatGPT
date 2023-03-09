@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.chatgpt.android.ApiController;
 import com.chatgpt.android.AppConstants;
@@ -17,6 +18,8 @@ import com.chatgpt.android.databinding.ActivityChatBinding;
 import com.chatgpt.android.room.RoomDatabase;
 
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,17 +86,13 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
     }
-    private void getDataFromAPI(Data data){
-        Call<ResponseBody> call = ApiController.getInstance().getApiSets().getDataFromApi(data);
-        call.enqueue(new Callback<ResponseBody>() {
+    private void getDataFromAPI(Data query){
+        Call<String> call = ApiController.getInstance().getApiSets().getDataFromApi(query);
+        call.enqueue(new Callback<String>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(Call<String> call, Response<String> response) {
                 String data = null;
-                try {
-                    data = response.body().string();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                data = response.body();
                 if(response.isSuccessful()){
                     ChatModel model = new ChatModel(AppConstants.RECEIVER_TYPE,data);
                     modelList.add(model);
@@ -108,13 +107,18 @@ public class ChatActivity extends AppCompatActivity {
                     binding.progressBar.setVisibility(View.GONE);
                     binding.sendMessageBtn.setVisibility(View.VISIBLE);
 
-                }else
-                    Log.d("failure_response",response.message());
+                }else{
+                    binding.progressBar.setVisibility(View.GONE);
+                    binding.sendMessageBtn.setVisibility(View.VISIBLE);
+                    Log.d("failure_response",response.message());}
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Log.d("error",t.getMessage());
+            public void onFailure(Call<String> call, Throwable t) {
+                binding.progressBar.setVisibility(View.GONE);
+                binding.sendMessageBtn.setVisibility(View.VISIBLE);
+                if( t instanceof UnknownHostException)
+                    Toast.makeText(ChatActivity.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
             }
         });
     }
