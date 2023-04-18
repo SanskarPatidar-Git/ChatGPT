@@ -7,25 +7,12 @@
     android:orientation="horizontal"
     tools:context=".activity.SplashActivity">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Magier"
-        android:textSize="@dimen/_24ssp"
-        android:layout_marginRight="@dimen/_4sdp"
-        android:textAppearance="@style/BoldFont15"
-        />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Plus+"
-        android:layout_marginLeft="@dimen/_4sdp"
-        android:textSize="@dimen/_24ssp"
-        android:textAppearance="@style/BoldFont15"
-        android:textColor="@color/orange_400" />
+<ImageView
+     android:layout_height="80dp"
+    android:layout_width="80dp"
+    android:src="@drawable/logo_splash"
+    android:layout_gravity="center"
+    android:contentDescription="splash" />
 
 
 </LinearLayout>

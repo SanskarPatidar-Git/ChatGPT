@@ -31,7 +31,7 @@
                     android:layout_gravity="start"
                     android:padding="3dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/magier" />
+                    android:src="@drawable/logo_splash" />
 
                 <TextView
                     android:id="@+id/toolbar_title"
@@ -65,10 +65,10 @@
                 <ImageView
                     android:id="@+id/imageMagier"
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_150sdp"
+                    android:layout_height="@dimen/_180sdp"
                     android:layout_gravity="center"
                     android:layout_margin="@dimen/_10sdp"
-                    android:src="@drawable/magier_image" />
+                    android:src="@drawable/intro_image" />
 
                 <TextView
                     android:id="@+id/tv_looks_nothing"
@@ -95,6 +95,7 @@
                     android:layout_width="@dimen/_200sdp"
                     android:layout_height="@dimen/_150sdp"
                     android:layout_gravity="start"
+                    android:scaleType="center"
                     android:layout_margin="@dimen/_16sdp"
                     android:src="@drawable/image_empty2" />
 

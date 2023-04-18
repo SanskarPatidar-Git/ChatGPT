@@ -11,9 +11,9 @@
     <ImageView
         android:id="@+id/image"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_300sdp"
+        android:layout_height="@dimen/_330sdp"
         android:scaleType="fitXY"
-        android:src="@drawable/magier_image"
+        android:src="@drawable/intro_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,10 +23,12 @@
         android:id="@+id/textWelcome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/figtree_semibold"
         android:text="Welcome!"
         android:textAlignment="center"
-        android:textAppearance="@style/BoldFont18"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_25sdp"
         app:layout_constraintBottom_toTopOf="@+id/textDesc"
         app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalEndRoot"
         app:layout_constraintHorizontal_bias="0.0"
@@ -40,8 +42,11 @@
         android:layout_marginBottom="32dp"
         android:text="Magier is a conversational AI here to help you get more stuff done! Come up with ideas for a song, create an outline for an essay, and so much more."
         android:textAlignment="center"
-        android:textAppearance="@style/RegularFont12"
-        app:layout_constraintBottom_toTopOf="@+id/btnContinue"
+        android:textColor="#666666"
+        android:textSize="16dp"
+        android:fontFamily="@font/figtree_regular"
+
+    app:layout_constraintBottom_toTopOf="@+id/btnContinue"
         app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalEndRoot"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guidelineVerticalStartRoot" />
@@ -65,8 +70,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_8sdp"
+        android:textColor="#808080"
+        android:fontFamily="@font/figtree_regular"
         android:text="By using the app, you agree to our "
-        android:textAppearance="@style/RegularFont10"
         app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalEndRoot"
         app:layout_constraintStart_toStartOf="@+id/guidelineVerticalStartRoot"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout" />
@@ -86,20 +92,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="terms of services "
-            android:textAppearance="@style/RegularFont10"
+            android:fontFamily="@font/figtree_regular"
             android:textColor="@color/indigo_200" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="and "
-            android:textAppearance="@style/RegularFont10" />
+            android:fontFamily="@font/figtree_regular"
+            android:textColor="#808080" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="privacy policy"
-            android:textAppearance="@style/RegularFont10"
+            android:fontFamily="@font/figtree_regular"
             android:textColor="@color/indigo_200" />
 
 
@@ -110,8 +117,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+    android:textColor="#808080"
+        android:fontFamily="@font/figtree_regular"
         android:text="we are not endorsed or affilated with OpenAI"
-        android:textAppearance="@style/RegularFont10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guidelineVerticalEndRoot"
         app:layout_constraintStart_toStartOf="@+id/guidelineVerticalStartRoot" />
